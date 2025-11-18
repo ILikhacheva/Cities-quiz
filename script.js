@@ -1,4 +1,5 @@
 // Получение данных городов с API и генерация викторины
+// Fetch cities data from API and generate quiz
 async function fetchCitiesData() {
   const res = await fetch("http://localhost:3000/api/cities");
   return await res.json();
@@ -21,6 +22,7 @@ function getQuizQuestions(data, numQuestions = 10) {
     const { country, city } = dataCopy[i];
     if (!usedCountries.has(country)) {
       // Получаем 9 неправильных столиц
+      // Get 9 wrong capitals
       const wrongCities = data
         .filter((item) => item.city !== city)
         .map((item) => item.city);
@@ -34,7 +36,8 @@ function getQuizQuestions(data, numQuestions = 10) {
 }
 
 let currentQuestions = [];
-
+// Рендеринг викторины в DOM
+// Render quiz to DOM
 function renderQuiz(questions) {
   currentQuestions = questions;
   const quizContainer = document.getElementById("quiz-container");
@@ -60,6 +63,7 @@ function renderQuiz(questions) {
     quizContainer.appendChild(div);
   });
   // Добавляем кнопку Проверить по центру
+  // Add Check button centered
   const checkBtn = document.createElement("button");
   checkBtn.id = "check-quiz-btn";
   checkBtn.textContent = "Check";
@@ -68,7 +72,8 @@ function renderQuiz(questions) {
   checkBtn.onclick = checkQuizAnswers;
   quizContainer.appendChild(checkBtn);
 }
-
+// Проверка ответов викторины и отображение результатов
+// Check quiz answers and display results
 function checkQuizAnswers() {
   let score = 0;
   currentQuestions.forEach((q, idx) => {
@@ -89,7 +94,8 @@ function checkQuizAnswers() {
     }
     select.disabled = true;
   });
-  // Показать очки внизу жирно и крупно
+  // Показать очки  крупно
+  // Show score
   const stats = document.getElementById("quiz-stats");
   stats.style.display = "block";
   stats.innerHTML = `<span style="font-size:28px;font-weight:bold;">Score: ${score} / ${currentQuestions.length}</span>`;
