@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header" style="position:relative;">
+    <div id="greeting-block" style="font-size:32px;color:#382929;text-align:center;margin-bottom:8px;"></div>
+    <h1>Welcome to the game!</h1>
+      <div style="position:relative; max-width:800px; margin:32px auto 0 auto;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:24px;">
+          <button id="start-quiz-btn">Start Quiz</button>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div id="quiz-stats" style="display:none;"></div>
+
+  
+    <div id="welcomeGif" style="text-align: center; margin: 50px auto; display: block;">
+        <img src="welcome.gif" alt="Wait..." style="max-width: 400px; height: auto;">
+        <p style="font-size: 48px; color: #412929; margin-top: 48px;">Shall we play?</p>
+    </div>  
+
+
+    <div id="quiz-area">
+      <div id="quiz-top" style="width: 100%; max-width: 600px; margin: 0 auto 8px auto"></div>
+      <div id="quiz-gif-overlay"></div>
+      <div id="quiz-container" class="sour-gummy-text" style="margin: 0 auto; max-width: 600px"></div>
+    </div>
+    <footer>
+      <div class="divider"></div>
+      <div>
+        <p>© 2025 Inna Likhacheva</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
