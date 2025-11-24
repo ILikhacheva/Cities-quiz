@@ -1,3 +1,4 @@
+// Configuring environment variables
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -18,6 +19,7 @@ const pool = new Pool({
 
 app.use(cors());
 
+// Endpoint to get cities and countries
 app.get("/api/cities", async (req, res) => {
   try {
     const result = await pool.query(
